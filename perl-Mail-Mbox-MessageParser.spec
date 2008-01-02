@@ -16,6 +16,7 @@ Buildrequires:	perl-devel
 %endif
 BuildRequires:	perl(FileHandle::Unget)
 BuildArch:	noarch
+BuildRoot:	%{_tmppath}/%{name}-%{version}
 
 %description
 This module implements a fast but simple mbox folder reader. One of three
