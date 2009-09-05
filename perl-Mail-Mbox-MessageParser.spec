@@ -1,23 +1,25 @@
-%define	module	Mail-Mbox-MessageParser
+%define	upstream_name	 Mail-Mbox-MessageParser
+%define	upstream_version 1.5002
+
+Name:       perl-%{upstream_name}
+Version:    %perl_convert_version %{upstream_version}
+Release:    %mkrel 1
 
 Summary:	A fast and simple mbox folder reader 
-Name:		perl-%{module}
-Version:	1.5000
-Release:	%mkrel 5
-License:	GPL or Artistic
+License:	GPL+ or Artistic
 Group:		Development/Perl
-URL:		http://search.cpan.org/dist/%{module}
-Source0:	http://www.cpan.org/modules/by-module/Mail/%{module}-%{version}.tar.bz2
-# http://cpan.llarian.net/authors/id/A/AN/ANDK/patches/Mail-Mbox-MessageParser-1.5000-ANDK-01.patch.gz
-Patch0:		Mail-Mbox-MessageParser-1.5000-ANDK-01.patch
+Url:		http://search.cpan.org/dist/%{upstream_name}
+Source0:	http://www.cpan.org/modules/by-module/Mail/%{upstream_name}-%{upstream_version}.tar.gz
+
 %if %{mdkversion} < 1010
 Buildrequires:	perl-devel
 %endif
 BuildRequires:	perl(FileHandle::Unget)
 BuildRequires:	perl(Text::Diff)
 BuildRequires:	perl(Benchmark::Timer)
+
 BuildArch:	noarch
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
+BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}
 
 %description
 This module implements a fast but simple mbox folder reader. One of three
@@ -42,9 +44,7 @@ sophisticated parsing, use Mail::MboxParser (which is based on this module) or
 Mail::Box.
 
 %prep
-
-%setup -q -n %{module}-%{version} 
-%patch0 -p1
+%setup -q -n %{upstream_name}-%{upstream_version}
 
 %build
 %{__perl} Makefile.PL INSTALLDIRS=vendor < /dev/null
