@@ -47,9 +47,6 @@ Mail::Box.
 %__perl Makefile.PL INSTALLDIRS=vendor < /dev/null
 %make
 
-%check
-make test
-
 %install
 %makeinstall_std
 
