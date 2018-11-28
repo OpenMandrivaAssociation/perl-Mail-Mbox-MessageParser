@@ -1,20 +1,22 @@
 %define	modname	Mail-Mbox-MessageParser
-%define	modver	1.5002
+%define	modver	1.5111
 
 Summary:	A fast and simple mbox folder reader 
 Name:		perl-%{modname}
 Epoch:		1
 Version:	%perl_convert_version %{modver}
-Release:	15
+Release:	1
 License:	GPLv2+ or Artistic
 Group:		Development/Perl
 Url:		http://search.cpan.org/dist/%{modname}
 Source0:	http://www.cpan.org/modules/by-module/Mail/%{modname}-%{modver}.tar.gz
 BuildArch:	noarch
 BuildRequires:	perl-devel
-BuildRequires:	perl(FileHandle::Unget)
 BuildRequires:	perl(Text::Diff)
-BuildRequires:	perl(Benchmark::Timer)
+BuildRequires:  perl(File::Path) 
+BuildRequires:  perl(ExtUtils::MakeMaker) 
+BuildRequires:  perl(File::Slurper)
+BuildRequires:  perl(FileHandle::Unget)
 
 %description
 This module implements a fast but simple mbox folder reader. One of three
@@ -44,9 +46,6 @@ Mail::Box.
 %build
 %__perl Makefile.PL INSTALLDIRS=vendor < /dev/null
 %make
-
-%check
-make test
 
 %install
 %makeinstall_std
