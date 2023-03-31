@@ -3,7 +3,7 @@
 Summary:	A fast and simple mbox folder reader 
 Name:		perl-%{modname}
 Version:	1.5111
-Release:	1
+Release:	2
 License:	GPLv2+ or Artistic
 Group:		Development/Perl
 Url:		http://search.cpan.org/dist/%{modname}
